@@ -5,7 +5,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, classification_report
 
 # Load the dataset
-data = pd.read_csv('/Users/nithinreddy/Desktop/internship hemachandra/Spam_Sms_Detection/Dataset/spam.csv', encoding='latin-1')
+data = pd.read_csv('E:/Internship/internship hemachandra/Spam_Sms_Detection/Dataset/spam.csv', encoding='latin-1')
 
 # Select only the relevant columns and rename them
 data = data[['v1', 'v2']]
@@ -55,6 +55,7 @@ else:
     # Filter to keep only spam messages
     output_data = output_data[output_data['label'] == 'spam']
 
-    # Save the output to a CSV file with ',' delimiter
-    output_data.to_csv('spam_detection_output.csv', index=False, sep=',')
-    print("\nPredictions saved to spam_predictions.csv")
+# Save the output to a CSV file with ',' delimiter in the specified path
+    output_file_path = 'E:/Internship/internship hemachandra/Spam_Sms_Detection/spam_detection_output.csv'
+    output_data.to_csv(output_file_path, index=False, sep=',')
+    print(f"\nPredictions saved to {output_file_path}")
